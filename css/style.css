@@ -1518,3 +1518,8 @@ Custom
   height:100%;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
 }
+
+.bkgPage2{
+    background-image: url("../images/bg5.jpg");
+    background-size: cover;
+}
