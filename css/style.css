@@ -1511,15 +1511,12 @@ Custom
   margin-top: 65px;
 }
 
-.page2-img
-{
-  content:url("../images/page2.jpg");
-  width:100%;
-  height:100%;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-}
-
 .bkgPage2{
     background-image: url("../images/bg5.jpg");
     background-size: cover;
+}
+
+.bkgPage3{
+  background-image: url("../images/bg4.jpg");
+  background-size: cover;
 }
