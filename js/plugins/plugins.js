@@ -764,44 +764,49 @@ return t=a?function(t){return t&&a(r(t))}:function(t){return t&&r(t)}}function e
 $('.gems-contact').submit(function() {
 		var $form		= $(this);
 		var submitData	= $form.serialize();
-		var $email		= $form.find('input[name="email"]');
-		var $name		= $form.find('input[name="name"]');
-		var $message	= $form.find('textarea[name="message"]');
+		var $email		= $form.find('input[name="Email"]');
+		var $name		= $form.find('input[name="Nom"]');
+    var $company		= $form.find('input[name="Societe"]');
+    var $reason		= $form.find('select[name="Motif"]');
+		var $message	= $form.find('textarea[name="Message"]');
 		var $submit		= $form.find('input[name="submit"]');
 		var $dataStatus	= $form.find('.data-status');
-		
+
 		$email.attr('disabled', 'disabled');
 		$name.attr('disabled', 'disabled');
+    $company.attr('disabled', 'disabled');
+    $reason.attr('disabled', 'disabled');
 		$message.attr('disabled', 'disabled');
 		$submit.attr('disabled', 'disabled');
-		
-		$dataStatus.show().html('<div class="alert alert-info"><strong>Loading...</strong></div>');
-		
+
+		$dataStatus.show().html('<div class="alert alert-info"><strong>Envoi en cours...</strong></div>');
+
 		$.ajax({ // Send an offer process with AJAX
 			type: 'POST',
-			url: 'http://bootstraplovers.com/bootstrap4/gems/html/contact_form/process-contact.php',
+			url: 'http://formspree.io/tjaskula@luteceo.com',
 			data: submitData + '&action=add',
-			dataType: 'html',
+			dataType: 'json',
 			success: function(msg){
-				if (parseInt(msg, 0) !== 0) {
-					var msg_split = msg.split('|');
-					if (msg_split[0] === 'success') {
+				if (msg["success"]) {
 						$email.val('').removeAttr('disabled');
 						$name.val('').removeAttr('disabled');
+            $company.val('').removeAttr('disabled');
+            $reason.val('').removeAttr('disabled');
 						$message.val('').removeAttr('disabled');
 						$submit.removeAttr('disabled');
-						$dataStatus.html(msg_split[1]).fadeIn();
-					} else {
+						$dataStatus.html(msg["success"]).fadeIn();
+        } else {
 						$email.removeAttr('disabled');
 						$name.removeAttr('disabled');
+            $company.removeAttr('disabled');
+            $reason.removeAttr('disabled');
 						$message.removeAttr('disabled');
 						$submit.removeAttr('disabled');
-						$dataStatus.html(msg_split[1]).fadeIn();
-					}
+						$dataStatus.html(msg["error"]).fadeIn();
 				}
 			}
 		});
-		
+
 		return false;
 	});
 
