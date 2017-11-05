@@ -596,8 +596,8 @@ Buttons
   color: #fff; }
 
 .btn-primary:hover {
-  background: rgba(62, 169, 141, 0.9);
-  border-color: #CC3A3A; }
+  background: #A00A0A;
+  border-color: #A00A0A; }
 
 .btn-primary:focus, .btn-success:focus, .btn-info:focus, .btn-warning:focus, .btn-danger:focus, .btn-dark:focus {
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
