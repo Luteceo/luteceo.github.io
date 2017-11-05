@@ -763,7 +763,8 @@ return t=a?function(t){return t&&a(r(t))}:function(t){return t&&r(t)}}function e
 
 $('.gems-contact').submit(function() {
 		var $form		= $(this);
-		var submitData	= $form.serialize();
+    var submitData = {};
+		$form.serializeArray().map(function(x){submitData[x.name] = x.value;});
 		var $email		= $form.find('input[name="Email"]');
 		var $name		= $form.find('input[name="Nom"]');
     var $company		= $form.find('input[name="Societe"]');
@@ -784,7 +785,7 @@ $('.gems-contact').submit(function() {
 		$.ajax({ // Send an offer process with AJAX
 			type: 'POST',
 			url: 'http://formspree.io/tjaskula@luteceo.com',
-			data: submitData + '&action=add',
+			data: submitData,
 			dataType: 'json',
 			success: function(msg){
 				if (msg["success"]) {
