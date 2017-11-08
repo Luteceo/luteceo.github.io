@@ -1598,7 +1598,7 @@ Custom
         align-items: center;
     }
 
-    .liquidapt-usage-each:nth-of-type(even) {
+    .liquidapt-usage-each:nth-of-type(odd) {
         -webkit-flex-direction: row-reverse;
         flex-direction: row-reverse;
     }
@@ -1630,4 +1630,25 @@ Custom
     content: "";
     display: table;
     clear: both;
+}
+
+.cloud {
+    font-family: 'Special Elite', cursive;
+    display: inline;
+    list-style-type: none;
+    width: 400px;
+}
+.cloud li {
+    list-style: none;
+    display: inline;
+}
+
+.cloud li:nth-of-type(3n + 1) {
+    font-size: 3em;
+}
+.cloud li:nth-of-type(7n + 2) {
+    font-size: 2em;
+}
+.cloud li:nth-of-type(5n) {
+    font-size: 2.5em;
 }
