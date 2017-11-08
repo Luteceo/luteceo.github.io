@@ -1163,7 +1163,8 @@ Call to actions
   display: block;
   padding: 100px 0;
   font-size: 2rem;
-  font-family: "Poppins", sans-serif;
+  /*font-family: "Poppins", sans-serif;*/
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   text-align: center;
   position: relative;
