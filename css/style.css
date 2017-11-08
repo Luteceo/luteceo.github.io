@@ -554,7 +554,8 @@ Buttons
   font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
-  font-family: "Roboto", sans-serif;
+  /*font-family: "Roboto", sans-serif;*/
+  font-family: 'Open Sans', sans-serif;
   letter-spacing: 2px;
   vertical-align: middle;
   border-radius: 2px;
@@ -1568,6 +1569,18 @@ Custom
     }
 }
 
+/* Cloud */
+
+.cloud {
+  font-family: 'Special Elite', cursive;
+  display: inline;
+  list-style-type: none;
+  width: 400px;
+}
+.cloud li {
+  list-style: none;
+  display: inline;
+}
 
 /* Overview: Why LiquidApt */
 
@@ -1617,6 +1630,57 @@ Custom
     .liquidapt-usage-each:nth-of-type(odd) .liquidapt-usage-info ul {
         text-align: right;
     }
+
+    .cloud li:nth-of-type(3n + 1) {
+      font-size: 3em;
+    }
+    .cloud li:nth-of-type(7n + 2) {
+      font-size: 2em;
+    }
+    .cloud li:nth-of-type(5n) {
+      font-size: 2.5em;
+    }
+}
+
+@media all and (max-width: 699px) {
+  .liquidapt-usage-each {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+  .liquidapt-usage-each {
+    -webkit-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+  }
+
+  .liquidapt-usage-info, .liquidapt-usage-img {
+    float: left;
+    width: 100%;
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+  }
+
+  .liquidapt-usage-each:nth-of-type(even) .liquidapt-usage-info {
+    float: right;
+  }
+
+  .liquidapt-usage-each:nth-of-type(odd) .liquidapt-usage-info ul {
+    text-align: right;
+  }
+
+  .cloud li:nth-of-type(3n + 1) {
+    font-size: 2em;
+  }
+  .cloud li:nth-of-type(7n + 2) {
+    font-size: 1em;
+  }
+  .cloud li:nth-of-type(5n) {
+    font-size: 1.5em;
+  }
 }
 
 /* Helpers: Full-width */
@@ -1630,25 +1694,4 @@ Custom
     content: "";
     display: table;
     clear: both;
-}
-
-.cloud {
-    font-family: 'Special Elite', cursive;
-    display: inline;
-    list-style-type: none;
-    width: 400px;
-}
-.cloud li {
-    list-style: none;
-    display: inline;
-}
-
-.cloud li:nth-of-type(3n + 1) {
-    font-size: 3em;
-}
-.cloud li:nth-of-type(7n + 2) {
-    font-size: 2em;
-}
-.cloud li:nth-of-type(5n) {
-    font-size: 2.5em;
 }
