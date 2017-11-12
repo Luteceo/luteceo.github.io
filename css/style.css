@@ -1696,3 +1696,9 @@ Custom
     display: table;
     clear: both;
 }
+
+.sub-lead {
+    font-weight: 400;
+    font-size: 1rem;
+    color: #212121;
+}
