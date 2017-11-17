@@ -1708,3 +1708,13 @@ Custom
     font-size: 1.2rem;
     color: #212121;
 }
+
+.tel,.tel:visited {
+    background:none;
+    cursor:default;
+    color:#fff;
+}
+
+.tel,.tel:focus {
+    color:#fff;
+}
