@@ -1712,9 +1712,9 @@ Custom
 .tel,.tel:visited {
     background:none;
     cursor:default;
-    color:#fff;
+    color:rgba(255, 255, 255, 0.8);
 }
 
-.tel,.tel:focus {
-    color:#fff;
+.tel,.tel:focus,.tel:hover {
+    color:rgba(255, 255, 255, 0.8);
 }
