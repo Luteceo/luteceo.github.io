@@ -1122,6 +1122,28 @@ Icons box
   .extra-service-bg h2 {
     color: #fff; }
 
+.overlay-line-home {
+  background: rgba(33, 33, 33, 0.8);
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: #fff;
+  bottom: -60px;
+  width: 100%;
+  position: absolute;
+}
+  .overlay-line-home h6 {
+    text-align: center;
+    padding-top: 10px;
+    color: #fff; }
+  .overlay-line-home h4 {
+    color: #fff; }
+  .overlay-line-home h3 {
+    color: #fff; }
+  .overlay-line-home h2 {
+    color: #fff; }
+  .overlay-line-home h1 {
+    color: #fff; }
+
 /*
 Call to actions
 */
@@ -1716,4 +1738,20 @@ Custom
 
 .tel,.tel:focus,.tel:hover {
     color:rgba(255, 255, 255, 0.8);
+}
+
+.line-home-text {
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+.img-thumbnail-home {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  max-width: 100%;
+  height: auto;
 }

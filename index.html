@@ -22,6 +22,7 @@
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/medias.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -55,7 +56,34 @@
     </div>
 </nav><!--/.navbar-->
 <section id='home' class="hero bkgBanner" data-jarallax='{"speed": 0.2}'>
-    <div class='hero-overlay'></div>
+    <div class="wow fadeOut overlay-line-home mb60" data-wow-delay="5s">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 align-content-center line-home-text">
+                    <h2 class="wow heartBeat" data-wow-delay="1s">
+                        Nos dernières actualités
+                    </h2>
+                </div>
+                <div class="col-md-3">
+                    <a data-scroll class="nav-link" href="#events">
+                        <img src='images/Meetup-20fev2020_34.png' alt='' class='img-thumbnail-home'>
+                    </a>
+                    <h6>
+                        Meetup F# Paris 06/02/2020
+                    </h6>
+                </div>
+                <div class="col-md-3">
+                    <a data-scroll class="nav-link" href="#events">
+                        <img src='images/IDDDKrakow022020.png' alt='' class='img-thumbnail'>
+                    </a>
+                    <h6>
+                        Formation IDDD Cracovie 24-26 Février 2020
+                    </h6>
+                </div>
+
+            </div>
+        </div>
+    </div>
     <div class="d-flex align-items-start">
         <div class="scroll-to hero-mouse"><a data-scroll="" href="#about"><i class="ti-angle-down"></i></a></div>
         <div class="container">
