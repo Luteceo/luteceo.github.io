@@ -784,7 +784,7 @@ $('.gems-contact').submit(function() {
 
 		$.ajax({ // Send an offer process with AJAX
 			type: 'POST',
-			url: 'http://formspree.io/tjaskula@luteceo.com',
+			url: 'https://formspree.io/f/tjaskula@luteceo.com',
 			data: submitData,
 			dataType: 'json',
 			success: function(msg){
