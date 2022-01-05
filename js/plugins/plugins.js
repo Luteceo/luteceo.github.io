@@ -759,28 +759,51 @@ return t=a?function(t){return t&&a(r(t))}:function(t){return t&&r(t)}}function e
   $(function() {
     setTimeout(scroller, 0);
   });
+
+    var $reason = $('.gems-contact').find('select[name="Motif"]');
+    $reason.on('change', function() {
+      var $formationChoices	= $('.gems-contact').find('div[id=formation_choices]');
+      if ($reason.find('option:selected').val() === "Formation") {
+        $formationChoices.removeAttr('hidden')
+      } else {
+        $formationChoices.attr('hidden', 'hidden')
+      }
+    })
 }));
 
 $('.gems-contact').submit(function() {
 		var $form		= $(this);
-    var submitData = {};
-		$form.serializeArray().map(function(x){submitData[x.name] = x.value;});
+        var submitData = {};
+		$form.serializeArray().map(function(x) {
+          var formations = [];
+          if (x.name === 'formation') {
+            formations.push(x.value)
+          } else {
+            submitData[x.name] = x.value;
+          }
+
+          if (formations.length > 0) {
+            submitData['formation'] = formations;
+          }
+        });
 		var $email		= $form.find('input[name="Email"]');
 		var $name		= $form.find('input[name="Nom"]');
     var $company		= $form.find('input[name="Societe"]');
-    var $reason		= $form.find('select[name="Motif"]');
+      var $reason		= $form.find('select[name="Motif"]');
 		var $message	= $form.find('textarea[name="Message"]');
 		var $submit		= $form.find('input[name="submit"]');
 		var $dataStatus	= $form.find('.data-status');
 
 		$email.attr('disabled', 'disabled');
 		$name.attr('disabled', 'disabled');
-    $company.attr('disabled', 'disabled');
-    $reason.attr('disabled', 'disabled');
+        $company.attr('disabled', 'disabled');
+        $reason.attr('disabled', 'disabled');
 		$message.attr('disabled', 'disabled');
 		$submit.attr('disabled', 'disabled');
 
 		$dataStatus.show().html('<div class="alert alert-info"><strong>Envoi en cours...</strong></div>');
+
+        return false;
 
 		$.ajax({ // Send an offer process with AJAX
 			type: 'POST',
@@ -791,16 +814,16 @@ $('.gems-contact').submit(function() {
 				if (msg["success"]) {
 						$email.val('').removeAttr('disabled');
 						$name.val('').removeAttr('disabled');
-            $company.val('').removeAttr('disabled');
-            $reason.val('').removeAttr('disabled');
+                        $company.val('').removeAttr('disabled');
+                        $reason.val('').removeAttr('disabled');
 						$message.val('').removeAttr('disabled');
 						$submit.removeAttr('disabled');
 						$dataStatus.html(msg["success"]).fadeIn();
-        } else {
+                } else {
 						$email.removeAttr('disabled');
 						$name.removeAttr('disabled');
-            $company.removeAttr('disabled');
-            $reason.removeAttr('disabled');
+                        $company.removeAttr('disabled');
+                        $reason.removeAttr('disabled');
 						$message.removeAttr('disabled');
 						$submit.removeAttr('disabled');
 						$dataStatus.html(msg["error"]).fadeIn();
