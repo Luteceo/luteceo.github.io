@@ -768,6 +768,12 @@ return t=a?function(t){return t&&a(r(t))}:function(t){return t&&r(t)}}function e
       } else {
         $formationChoices.attr('hidden', 'hidden')
       }
+      var $projetChoices	= $('.gems-contact').find('div[id=projet_choices]');
+      if ($reason.find('option:selected').val() === "Projet") {
+        $projetChoices.removeAttr('hidden')
+      } else {
+        $projetChoices.attr('hidden', 'hidden')
+      }
     })
 }));
 
@@ -775,15 +781,19 @@ $('.gems-contact').submit(function() {
 		var $form		= $(this);
         var submitData = {};
         var formations = [];
+        var projets = [];
 		$form.serializeArray().map(function(x) {
           if (x.name === 'formation') {
-            formations.push(x.value)
+            formations.push(x.value);
+          } else  if (x.name === 'projet') {
+            projets.push(x.value);
           } else {
             submitData[x.name] = x.value;
           }
         });
 
         submitData['Formations'] = formations;
+        submitData['Projets'] = projets;
 
 		var $email		= $form.find('input[name="Email"]');
 		var $name		= $form.find('input[name="Nom"]');
@@ -792,7 +802,8 @@ $('.gems-contact').submit(function() {
 		var $message	= $form.find('textarea[name="Message"]');
 		var $submit		= $form.find('input[name="submit"]');
 		var $dataStatus	= $form.find('.data-status');
-        var $formChoices = $form.find('div[id=formation_choices]');
+        var $formFChoices = $form.find('div[id=formation_choices]');
+        var $formPChoices = $form.find('div[id=projet_choices]');
 
 		$email.attr('disabled', 'disabled');
 		$name.attr('disabled', 'disabled');
@@ -803,8 +814,12 @@ $('.gems-contact').submit(function() {
 
 		$dataStatus.show().html('<div class="alert alert-info" id="envoiEnCours"><strong>Envoi en cours...</strong></div>');
 
-        if ($formChoices.attr('hidden') === 'hidden') {
+        if ($formFChoices.attr('hidden') === 'hidden') {
           submitData['Formations'] = [];
+        }
+
+        if ($formPChoices.attr('hidden') === 'hidden') {
+          submitData['Projets'] = [];
         }
 
         //console.log(submitData);
