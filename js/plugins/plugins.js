@@ -774,18 +774,17 @@ return t=a?function(t){return t&&a(r(t))}:function(t){return t&&r(t)}}function e
 $('.gems-contact').submit(function() {
 		var $form		= $(this);
         var submitData = {};
+        var formations = [];
 		$form.serializeArray().map(function(x) {
-          var formations = [];
           if (x.name === 'formation') {
             formations.push(x.value)
           } else {
             submitData[x.name] = x.value;
           }
-
-          if (formations.length > 0) {
-            submitData['formation'] = formations;
-          }
         });
+
+        submitData['formation'] = formations;
+
 		var $email		= $form.find('input[name="Email"]');
 		var $name		= $form.find('input[name="Nom"]');
     var $company		= $form.find('input[name="Societe"]');
@@ -793,6 +792,7 @@ $('.gems-contact').submit(function() {
 		var $message	= $form.find('textarea[name="Message"]');
 		var $submit		= $form.find('input[name="submit"]');
 		var $dataStatus	= $form.find('.data-status');
+        var $formChoices = $form.find('div[id=formation_choices]');
 
 		$email.attr('disabled', 'disabled');
 		$name.attr('disabled', 'disabled');
@@ -801,9 +801,13 @@ $('.gems-contact').submit(function() {
 		$message.attr('disabled', 'disabled');
 		$submit.attr('disabled', 'disabled');
 
-		$dataStatus.show().html('<div class="alert alert-info"><strong>Envoi en cours...</strong></div>');
+		$dataStatus.show().html('<div class="alert alert-info" id="envoiEnCours"><strong>Envoi en cours...</strong></div>');
 
-        return false;
+        if ($formChoices.attr('hidden') === 'hidden') {
+          submitData['formation'] = [];
+        }
+
+        //console.log(submitData);
 
 		$.ajax({ // Send an offer process with AJAX
 			type: 'POST',
@@ -828,6 +832,8 @@ $('.gems-contact').submit(function() {
 						$submit.removeAttr('disabled');
 						$dataStatus.html(msg["error"]).fadeIn();
 				}
+
+              $form.find('div[id=envoiEnCours]').remove();
 			}
 		});
 
