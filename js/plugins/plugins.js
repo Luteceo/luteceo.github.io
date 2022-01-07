@@ -783,7 +783,7 @@ $('.gems-contact').submit(function() {
           }
         });
 
-        submitData['formation'] = formations;
+        submitData['Formations'] = formations;
 
 		var $email		= $form.find('input[name="Email"]');
 		var $name		= $form.find('input[name="Nom"]');
@@ -804,7 +804,7 @@ $('.gems-contact').submit(function() {
 		$dataStatus.show().html('<div class="alert alert-info" id="envoiEnCours"><strong>Envoi en cours...</strong></div>');
 
         if ($formChoices.attr('hidden') === 'hidden') {
-          submitData['formation'] = [];
+          submitData['Formations'] = [];
         }
 
         //console.log(submitData);
